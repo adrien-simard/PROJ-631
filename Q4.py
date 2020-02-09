@@ -23,7 +23,7 @@ list_node =[1,2,3,4,'user1','user4']
 import networkx as nx
 # Create an empty graph with no nodes and no edges
 G = nx.Graph()
-#comme dans une représentation ensembliste on construit l'arbre à partir de liste
+
 
 #user node
 G.add_node('user1',ID=1234,list_id_data=[],id_nodes=[])
