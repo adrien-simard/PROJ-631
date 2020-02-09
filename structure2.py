@@ -20,7 +20,7 @@ dt = [data6,data7,data8]
 import networkx as nx
 # Create an empty graph with no nodes and no edges
 G = nx.Graph()
-#comme dans une représentation ensembliste on construit l'arbre à partir de liste
+
 
 #user node
 G.add_node('user1',ID=1234,list_id_data=[data1["id_data"]],id_nodes=[])
@@ -36,7 +36,6 @@ G.add_node(4,memory=80,ID=1113,list_id_data=[data4["id_data"]],id_nodes=[])
 G.add_node(5,memory=100,ID=1114,list_id_data=[data5["id_data"]],id_nodes=[])
 
 #add_arcs beetween system nodes 
-
 G.add_edge(1,2,weight=3)
 G.add_edge(1,3,weight=2)
 G.add_edge(1,4,weight=4)
@@ -48,12 +47,12 @@ G.add_edge(3,4,weight=8)
 G.add_edge(3,5,weight=1)
 G.add_edge(4,5,weight=1)
 
-#edge beetween users and system
+#edge beetween users nodes and system nodes
 G.add_edge("user1",1,weight=2)
 G.add_edge("user2",2,weight=1)
 G.add_edge("user3",3,weight=4)
 G.add_edge("user4",4,weight=1)
-e=(2,1)
+
 
       
       

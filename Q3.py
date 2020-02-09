@@ -19,7 +19,7 @@ import structureQ3 as st3
 
 
 def receive_node(data,G,user):
-    """Return le noeud syst`eme a recevoir la donn´ee pour le premier utilisateur
+    """Return le noeud systeme pret a recevoir la donnee pour le premier utilisateur
     
     Parameters :
     ===========================================================================
@@ -35,26 +35,64 @@ def receive_node(data,G,user):
     voisins= q2.select_syts_negbour(G,user)
     l_weight =[]
     for voisin in voisins:
+        #for each path between the user and the nodes, we put the weighted path in a sort list
             l_weight.append(nx.dijkstra_path_length(G,user,voisin,weight='weight'))     
     l_weight.sort()
 
     i = 0
     for voi in voisins:
-        pds_min = l_weight[i]
+        pds_min = l_weight[i]#current min path 
         place = q2.place_restante(G,voi)
-        
+        #if the path is the most short (less weight) and there is some place
         if nx.dijkstra_path_length(G,user,voi,weight='weight') <= pds_min and data['size']<= place:
-    
-            return voi
-        else:
+            return voi#return the node label
+        else:#we look the other closer path
             i = i + 1
             
 def short_path(node,G,user):
+    """Returns the short_path beetween a user node and a system node
+    
+    Parameters :
+    ===========================================================================
+        node: node object
+        
+        G : NetworkX graph
+        
+        user : string (user node label)
+        
+        
+    Returns : 
+    ===========================================================================
+        the list of the nodes labels in the path: list
+    """
     return nx.dijkstra_path(G,node,user,weight='weight')
+
 def mediane(l):
     return l[int(len(l)/2)]
 
 def placement_Q3(data,G,user1,user2):
+    
+    """Puts data in the node of the path that minimizes access time for both users
+    because now a data can be associated with 2 users.
+    
+    Parameters :
+    ===========================================================================
+        
+        data : dict
+            
+        G : NetworkX graph
+        
+        user1 : string (user node label)
+        
+        user2 : string (user node label)
+        
+        
+        
+    Returns :
+        
+    ===========================================================================
+        
+    """
     n1 = receive_node(st3.data8,st3.G,user1)
     path = short_path(n1,st3.G,user2)
     med = mediane(path)

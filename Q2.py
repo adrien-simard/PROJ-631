@@ -78,7 +78,7 @@ def sort_byID(data_list):
     return sort_data
 
 def placement_data(data,G,user):
-    """Place a data in a system node
+    """Puts a data in a system node
     
     Parameters :
     ===========================================================================
@@ -95,22 +95,23 @@ def placement_data(data,G,user):
     l_weight =[]
     print(voisins)
     for voisin in voisins:
+        #for each path between the user and the nodes, we put the weighted path in a sort list
             l_weight.append(nx.dijkstra_path_length(G,user,voisin,weight='weight'))     
     l_weight.sort()
     print(l_weight)
     i = 0
     for voi in voisins:
-        pds_min = l_weight[i]
+        pds_min = l_weight[i]#current min path 
         place = place_restante(G,voi)
-        
+        # if the path is the most short (less weight) and there is some place
         if nx.dijkstra_path_length(G,user,voi,weight='weight') <= pds_min and data['size']<= place:
-            G.nodes[user]['list_id_data'].append(data['id_data'])
+            G.nodes[user]['list_id_data'].append(data['id_data']) #
             return G.nodes[voi]['list_id_data'].append(data['id_data'])
-        else:
+        else:#we look the other closer path
             i = i + 1
 
 def placement_data_from(data_list,G,user):
-    """Place a list of datas by id order
+    """Puts a list of datas by id order for the user node
     
      Parameters :
     ===========================================================================
