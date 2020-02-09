@@ -1,17 +1,50 @@
 # PersonnalData
 
-## Context
-Many applications on a global scale handle "personal data" of variable size. Data is said to be personal if it is not accessed
-only by one user. In order to provide an efficient service, the storage has different system node and must place the data on these
-different nodes.
+## Structure de données
+ Concevoir et implementer les structures de donnees pour modeliser les
+donnees personnelles, les noeuds systeme et les utilisateurs. La structure
+devra, entre autres, impl´ementer les champs suivants:
 
-Each system node can receive one or more data depending on of their size. The storage capacity of such a node is specific to it and can
-differ according to the nodes. In addition, a system node can communicate with all other system nodes and some users.
+#### Donnees
+– ID : Un entier unique
 
-Users are interested in a list of data and only access this data. They can communicate directly with a single node system and cannot communicate with other users.note: In such a context, the communication time between two nodes system or a system node and a different user depending on the users and affected system nodes. For the sake of simplification we will consider that time of communication between two nodes ni , nj is constant, but different from time communication from another couple: neither, nk.
+– Taille : Un entier
+ 
+  #### Utilisateurs
+– ID : Un entier unique
 
-## Project
-Design and implement data structures to model the personal data, system nodes and users. The structure Among other things, will have to implement the following fields:
+– Liste de donnees d’interet : Une liste d’ID (donnees)
 
-1. personnal
-2.
+– Noeud systeme accessible : Un ID (noeud systeme)
+
+#### Noeuds systeme:
+– ID : Un entier unique
+
+– capacite memoire : Un entier
+
+– Liste des donnees stockees localement : Une liste d’ID (donnees)
+
+– Liste des noeuds accessibles : Une liste d’ID (noeud systeme/Utilisateur)
+
+
+## Q2
+On cherche à trouver un placement efficace pour les donnees du systeme:
+chaque donnee doit etre placée au plus près de l’utilisateur interessé par
+cette donnée. Implémentez une méthode permettant au système de savoir
+ou placer les données du systémes. Cette méthode devra prendre en
+compte la place restante sur les différents noeuds du systéme. Dans cette
+méthode, on s’intéressera à placer les donnees une par une, par ordre d’ID.
+
+## Q3
+Adaptons le programme pour que deux utilisateurs puissent être intéressés
+par une même donnée. On pourra, par exemple, calculer le noeud système
+a recevoir la donnée pour le premier utilisateur puis calculer le plus chemin
+entre ce noeud et le second utilisateur. Il faudra alors choisir le noeud de
+ce chemin qui minimise le temps d’accès pour les deux utilisateurs.
+## Q4
+Le placement de donnée une par une pouvant mener à des résultats non optimaux, il convient d’utiliser des algorithmes permettant de repartir efficacement l’espace disponible. Ce problème est connu sous le noms de“Sac à dos Multiple (MKP problem)”. Implémentez une solution à ce probleme dans le cadre du stockage de données personnelles.
+
+
+
+
+
