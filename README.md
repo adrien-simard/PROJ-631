@@ -42,7 +42,7 @@ a recevoir la donnée pour le premier utilisateur puis calculer le plus chemin
 entre ce noeud et le second utilisateur. Il faudra alors choisir le noeud de
 ce chemin qui minimise le temps d’accès pour les deux utilisateurs.
 ## Q4
-Le placement de donnée une par une pouvant mener à des résultats non optimaux, il convient d’utiliser des algorithmes permettant de repartir efficacement l’espace disponible. Ce problème est connu sous le noms de“Sac à dos Multiple (MKP problem)”. Implémentez une solution à ce probleme dans le cadre du stockage de données personnelles.
+Le placement des données une par une pouvant mener à des résultats non optimaux, il convient d’utiliser des algorithmes permettant de repartir efficacement l’espace disponible. Ce problème est connu sous le noms de“Sac à dos Multiple (MKP problem)”. Implémentez une solution à ce probleme dans le cadre du stockage de données personnelles.
 
 ### Sujet Polytech Annecy-Chambéry
 
