@@ -44,6 +44,17 @@ ce chemin qui minimise le temps d’accès pour les deux utilisateurs.
 ## Q4
 Le placement des données une par une pouvant mener à des résultats non optimaux, il convient d’utiliser des algorithmes permettant de repartir efficacement l’espace disponible. Ce problème est connu sous le noms de“Sac à dos Multiple (MKP problem)”. Implémentez une solution à ce probleme dans le cadre du stockage de données personnelles.
 
+## Utilisation du programme
+
+- La fonction Placement_data_from permet de placer un liste de données tries par ID au plus proche du nœuds 
+
+- La Fonction Placement_Q4 place une données mise paramètre et la place a pour qu’elle soit accessible le plus rapidement par les deux utilisateur
+
+- La Fonction MKP donne une façon de placer des données dans les nœuds de manière tous les remplir.
+
+
+
+## Bibliothèque
 Lors de ce projet j'ai utilisé la bibliothèque NetworkX, voici le lien avec les indications afin de l'installer et d'avoir la documention
 
 Installer NetworkX : https://networkx.github.io/documentation/stable/install.html
