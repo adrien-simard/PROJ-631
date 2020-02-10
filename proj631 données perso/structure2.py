@@ -4,17 +4,17 @@ Created on Mon Feb  3 16:40:08 2020
 
 @author: 33699
 """
-# First we define the datas 
+# First we define the data
 data1 = {"id_data":1001,'size':20}
 data2 = {"id_data":1002,'size':20}
 data3 = {"id_data":1003,'size':20}
 data4 = {"id_data":1004,'size':80}
 data5 = {"id_data":1005,'size':20}
-data6 = {"id_data":1006,'size':40}
-data7 = {"id_data":1007,'size':40}
-data8 = {"id_data":1008,'size':40}
+data6 = {"id_data":1006,'size':30}
+data7 = {"id_data":1007,'size':20}
+data8 = {"id_data":1008,'size':20}
 list_data =[data1,data2,data3,data4,data5,data6,data7,data8]
-dt = [data6,data7,data8]
+dt = [data6,data8,data7]
 
 #We use the library Networkx to build a graph with the users nodes and the system nodes
 import networkx as nx
@@ -30,30 +30,27 @@ G.add_node('user4',ID=1234,list_id_data=[data4["id_data"]],id_nodes=[])
 
 #system node
 G.add_node(1,memory=80,ID=1234,list_id_data=[data1["id_data"]])
-G.add_node(2,memory=80,ID=1111,list_id_data=[data2["id_data"]],id_nodes=[])
+G.add_node(2,memory=100,ID=1111,list_id_data=[data2["id_data"]],id_nodes=[])
 G.add_node(3,memory=30,ID=1112,list_id_data=[data3["id_data"]],id_nodes=[])
 G.add_node(4,memory=80,ID=1113,list_id_data=[data4["id_data"]],id_nodes=[])
 G.add_node(5,memory=100,ID=1114,list_id_data=[data5["id_data"]],id_nodes=[])
 
 #add_arcs beetween system nodes 
-G.add_edge(1,2,weight=3)
+G.add_edge(1,2,weight=2)
 G.add_edge(1,3,weight=2)
 G.add_edge(1,4,weight=4)
-G.add_edge(1,5,weight=1)
+G.add_edge(1,5,weight=3)
 G.add_edge(2,3,weight=2)
 G.add_edge(2,4,weight=3)
 G.add_edge(2,5,weight=2)
-G.add_edge(3,4,weight=8)
+G.add_edge(3,4,weight=3)
 G.add_edge(3,5,weight=1)
 G.add_edge(4,5,weight=1)
 
 #edge beetween users nodes and system nodes
-G.add_edge("user1",1,weight=2)
+G.add_edge("user1",1,weight=1)
 G.add_edge("user2",2,weight=1)
-G.add_edge("user3",3,weight=4)
+G.add_edge("user3",3,weight=1)
 G.add_edge("user4",4,weight=1)
-
-
-      
-      
-    
+#draw the graph
+nx.draw_networkx(G) 

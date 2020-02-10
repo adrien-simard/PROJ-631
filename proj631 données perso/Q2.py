@@ -9,6 +9,7 @@ import networkx as nx
 
 
 
+
 def place_restante(G,n1):
     """Returns the free memory in a node
     
@@ -21,7 +22,6 @@ def place_restante(G,n1):
     Returns :
     =========
         place_restante : int
-
     """
     memo = G.nodes[n1]['memory']
     size = 0
@@ -29,7 +29,7 @@ def place_restante(G,n1):
     for data in st.list_data :
         if data['id_data'] in id_data:
             size = size + data['size']
-        
+
     return memo - size 
 
 def select_syts_negbour(G,user):
@@ -78,7 +78,7 @@ def sort_byID(data_list):
     return sort_data
 
 def placement_data(data,G,user):
-    """Puts a data in a system node
+    """Place a data in a system node
     
     Parameters :
     ===========================================================================
@@ -93,25 +93,23 @@ def placement_data(data,G,user):
     """
     voisins= select_syts_negbour(G,user)
     l_weight =[]
-    print(voisins)
     for voisin in voisins:
-        #for each path between the user and the nodes, we put the weighted path in a sort list
             l_weight.append(nx.dijkstra_path_length(G,user,voisin,weight='weight'))     
     l_weight.sort()
-    print(l_weight)
+    print("lll",l_weight)
     i = 0
     for voi in voisins:
-        pds_min = l_weight[i]#current min path 
+        pds_min = l_weight[i]
         place = place_restante(G,voi)
-        # if the path is the most short (less weight) and there is some place
+
         if nx.dijkstra_path_length(G,user,voi,weight='weight') <= pds_min and data['size']<= place:
-            G.nodes[user]['list_id_data'].append(data['id_data']) #
+            G.nodes[user]['list_id_data'].append(data['id_data'])
             return G.nodes[voi]['list_id_data'].append(data['id_data'])
-        else:#we look the other closer path
+        else:
             i = i + 1
 
 def placement_data_from(data_list,G,user):
-    """Puts a list of datas by id order for the user node
+    """Place a list of datas by id order
     
      Parameters :
     ===========================================================================
@@ -127,7 +125,11 @@ def placement_data_from(data_list,G,user):
     for data in data_list:
         placement_data(data,G,user)
 
+#test
+placement_data_from(st.dt,st.G,"user1")
 
-
-
+for i in [1,2,3,4,5]:
+    #print(st.G.nodes['user1']['list_id_data'])
+    print(st.G.nodes[i]['list_id_data'])
+nx.draw_networkx(st.G)  
 
