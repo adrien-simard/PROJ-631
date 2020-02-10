@@ -236,16 +236,16 @@ def MKP(G,list_data,list_nodes,user):
         
 
         
-    
-        
 
 MKP(G,dt,list_node,'user1') 
-MKP(G,list_data,list_node,'user4')         
-G.nodes[4]['list_id_data']
+MKP(G,list_data,list_node,'user4') 
+for i in [1,2,3,4]:
+    #print(st.G.nodes['user1']['list_id_data'])
+    print(G.nodes[i]['list_id_data'])        
+nx.draw_networkx(G) 
     
 
 
-nx.dijkstra_predecessor_and_distance(G, "user1")[1][1]
 
 
 

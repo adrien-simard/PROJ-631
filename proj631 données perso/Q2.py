@@ -96,7 +96,7 @@ def placement_data(data,G,user):
     for voisin in voisins:
             l_weight.append(nx.dijkstra_path_length(G,user,voisin,weight='weight'))     
     l_weight.sort()
-    print("lll",l_weight)
+    
     i = 0
     for voi in voisins:
         pds_min = l_weight[i]

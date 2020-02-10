@@ -123,12 +123,12 @@ def placement_Q3(data,G,user1,user2):
     
 placement_Q3(st3.data8,st3.G,'user1','user4')
 placement_Q3(st3.data7,st3.G,'user1','user4')  
-
+placement_Q3(st3.data6,st3.G,'user1','user4') 
 for i in [1,2,3,4]:
     #print(st.G.nodes['user1']['list_id_data'])
     print(st3.G.nodes[i]['list_id_data'])
     
-
+nx.draw_networkx(st3.G) 
 
 
 
