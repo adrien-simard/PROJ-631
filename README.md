@@ -44,6 +44,10 @@ ce chemin qui minimise le temps d’accès pour les deux utilisateurs.
 ## Q4
 Le placement des données une par une pouvant mener à des résultats non optimaux, il convient d’utiliser des algorithmes permettant de repartir efficacement l’espace disponible. Ce problème est connu sous le noms de“Sac à dos Multiple (MKP problem)”. Implémentez une solution à ce probleme dans le cadre du stockage de données personnelles.
 
+Lors de ce projet j'ai utilisé la bibliothèque NetworkX, voici le lien avec les indications afin de l'installer et d'avoir la documention
+Installer NetworkX : https://networkx.github.io/documentation/stable/install.html
+Documentation NetworkX : https://networkx.github.io/documentation/networkx-1.10/install.html
+
 ### Sujet Polytech Annecy-Chambéry
 
 
